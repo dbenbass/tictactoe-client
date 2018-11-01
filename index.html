@@ -1,41 +1,78 @@
 <!DOCTYPE html>
 <html>
+<body>
     <head>
-      <title>Example</title>
+      <title>Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
       <!-- Do not add `script` tags-->
+
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
       <h1>TIC TAC TOE</h1>
+      <h2>GET READY FOR A CHALLENGE</h2>
       <div class="container">
   <div class="row">
-    <div class="col-2 box grey"id="topleft">TIC</div>
-    <div class="col-2 box grey"id="topmid">One of three columns</div>
-    <div class="col-2 box grey"id="topright">One of three columns</div>
+    <div class="col-1 box grey"id="topleft">X</div>
+    <div class="col-1 box grey"id="topmid">O</div>
+    <div class="col-1 box grey"id="topright">X</div>
   </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-2 box grey">One of three columns</div>
-    <div class="col-2 box grey">One of three columns</div>
-    <div class="col-2 box grey">One of three columns</div>
+    <div class="col-1 box grey">X</div>
+    <div class="col-1 box grey">O</div>
+    <div class="col-1 box grey">O</div>
   </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-2 box grey">One of three columns</div>
-    <div class="col-2 box grey">One of three columns</div>
-    <div class="col-2 box grey">One of three columns</div>
+    <div class="col-1 box grey">X</div>
+    <div class="col-1 box grey">X</div>
+    <div class="col-1 box grey">O</div>
   </div>
 </div>
 
+<p id="message"></p>
 
+<form id="sign-up" class="border">
+   <fieldset>
+     <legend>Sign up!</legend>
+     <input type="text" name="credentials[email]" placeholder="Email">
+     <input type="password" name="credentials[password]" placeholder="Password">
+     <input type="password" name="credentials[password_confirmation]"
+            placeholder="Confirm Password">
+     <input type="submit" value="Sign up!">
+   </fieldset>
+</form>
 
-    </body>
+<form id="sign-in" class="border">
+   <fieldset>
+     <legend>Sign in!</legend>
+     <input type="text" name="credentials[email]" placeholder="Email">
+     <input type="password" name="credentials[password]" placeholder="Password">
+     <input type="submit" value="Sign in!">
+   </fieldset>
+</form>
+
+<form id="change-password" class="border">
+   <fieldset>
+     <legend>Change password!</legend>
+     <input type="password" name="passwords[old]" placeholder="Old password">
+     <input type="password" name="passwords[new]" placeholder="New password">
+     <input type="submit" value="Change password!">
+   </fieldset>
+</form>
+
+<form id="sign-out" class="border">
+   <fieldset>
+     <legend>Sign out!</legend>
+     <input type="submit" value="Sign out!">
+   </fieldset>
+</form>
+
+</body>
 </html>
