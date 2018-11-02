@@ -4,6 +4,12 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
 
+/* const onCreateGameClick = event => {
+  event.preventDefault()
+  api.createGame()
+    .then(console.log)
+    .catch(console.error) */
+
 const onSignUp = event => {
   event.preventDefault()
   const data = getFormFields(event.target)
