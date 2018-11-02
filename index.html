@@ -16,23 +16,23 @@
       <h2>GET READY FOR A CHALLENGE</h2>
       <div class="container">
   <div class="row">
-    <div class="col-1 box grey"id="topleft">X</div>
-    <div class="col-1 box grey"id="topmid">O</div>
-    <div class="col-1 box grey"id="topright">X</div>
+    <div class="col-1 box grey square" id="topLeft"></div>
+    <div class="col-1 box grey square" id="topMid"></div>
+    <div class="col-1 box grey square" id="topRight"></div>
   </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-1 box grey">X</div>
-    <div class="col-1 box grey">O</div>
-    <div class="col-1 box grey">O</div>
+    <div class="col-1 box grey square" id="midLeft"></div>
+    <div class="col-1 box grey square" id="midMid"></div>
+    <div class="col-1 box grey square" id="midRight"></div>
   </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-1 box grey">X</div>
-    <div class="col-1 box grey">X</div>
-    <div class="col-1 box grey">O</div>
+    <div class="col-1 box grey square"id="bottomLeft"></div>
+    <div class="col-1 box grey square"id="bottomMid"></div>
+    <div class="col-1 box grey square"id="bottomRight"></div>
   </div>
 </div>
 
@@ -73,6 +73,25 @@
      <input type="submit" value="Sign out!">
    </fieldset>
 </form>
+<button type="button" class="btn btn-primary" data-toggle="modal"
+      data-target="#exampleModal"> Modal!</button>
 
+      <div class="modal fade" id="exampleModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">YAY! MODALS!</h5>
+              <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+              HI!!!
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+              <button type="button" class="btn btn-primary">SAVE</button>
+            </div>
+          </div>
+        </div>
+      </div>
 </body>
 </html>
