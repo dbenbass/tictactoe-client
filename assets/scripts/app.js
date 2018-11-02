@@ -25,7 +25,9 @@ $(() => {
       }
       move++
       if (checkForWinner() !== -1 && checkForWinner() !== '') {
-        if (checkForWinner() === 'X') { console.log('X wins!') } if (checkForWinner() === 'O') { console.log('O wins') }
+        if (checkForWinner() === 'X') { console.log('X wins!') } if (checkForWinner() === 'O') {
+          console.log('O wins')
+        } else if (checkForWinner() === -1) { console.log('re match!!') }
         play = false
       }
     }

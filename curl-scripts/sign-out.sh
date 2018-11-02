@@ -1,6 +1,6 @@
 # ID=2 sh curl-scripts/sign-out.sh
 
-curl "https://wdi-library-api.herokuapp.com/sign-out" \
+curl "https://tic-tac-toe-wdi.herokuapp.com/sign-out" \
   --include \
   --request DELETE \
 
