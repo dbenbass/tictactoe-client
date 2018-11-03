@@ -8,28 +8,36 @@
 
 $(() => {
   const authEvents = require('./auth/events.js')
-  let move = 1
-  let play = true
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
   // authentication
 
+  let move = 1
+  // game starts at move 1, odd number
+  let play = true
+
   $('.row .square').click(function () {
+  // when you click on a square
     if ($(this).text() === '' && play) {
+    // if square is blank and game is in session
       if ((move % 2) === 1) {
+        // and move is an odd number, write X
         $(this).append('X')
       } else {
         $(this).append('O')
+        // if not, O
       }
       move++
       if (checkForWinner() !== -1 && checkForWinner() !== '') {
-        if (checkForWinner() === 'X') { console.log('X wins!') } if (checkForWinner() === 'O') {
+      // continue playing if checkForWinner is not equal to -1 and is not blank
+        if (checkForWinner() === 'X') {
+          console.log('X wins!')
+        } else if (checkForWinner() === 'O') {
           console.log('O wins')
-        } else if (checkForWinner() === '-1') {
-          console.log('re match!!')
-        }
+        // if checkForWinner = x,  x wins, if o, o wins...
+        } else if (checkForWinner() === 'draw') { console.log('draw') }
         play = false
       }
     }
@@ -45,6 +53,7 @@ $(() => {
     const space7 = $('#bottomLeft').text()
     const space8 = $('#bottomMid').text()
     const space9 = $('#bottomRight').text()
+
     // check rows
     if ((space1 === space2) && (space2 === space3)) {
       return space3
@@ -52,17 +61,22 @@ $(() => {
       return space6
     } else if ((space7 === space8) && (space8 === space9)) {
       return space9
+    // check columns
     } else if ((space1 === space4) && (space4 === space7)) {
       return space7
     } else if ((space2 === space5) && (space5 === space8)) {
       return space8
     } else if ((space3 === space6) && (space6 === space9)) {
       return space9
+    // check diagonal
     } else if ((space1 === space5) && (space5 === space9)) {
       return space9
     } else if ((space3 === space5) && (space5 === space7)) {
       return space7
-    } return -1
+    } else if ((space1 !== '') && (space2 !== '') && (space3 !== '') && (space4 !== '') &&
+      (space5 !== '') && (space6 !== '') && (space7 !== '') && (space8 !== '') && (space9 !== '')) {
+      return 'draw'
+    }
+    return -1
   }
-  console.log(checkForWinner)
 })
