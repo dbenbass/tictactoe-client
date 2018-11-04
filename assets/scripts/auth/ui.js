@@ -22,6 +22,7 @@ const signInSuccess = data => {
   $('#message').removeClass()
   $('#message').addClass('success')
   console.log('signInSuccess ran. Data is :', data)
+  $('#newGame').show()
 }
 
 const signInFailure = error => {
