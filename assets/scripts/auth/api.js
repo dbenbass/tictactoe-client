@@ -3,9 +3,20 @@
 const config = require('../config.js')
 const store = require('../store.js')
 
+const createGame = data => {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 const signUp = data => {
   return $.ajax({
-    url: config.apiUrl + '/sign-up',
+    url: config.apiUrl + '/signUp',
     method: 'POST',
     data
   })
@@ -44,5 +55,6 @@ module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  createGame
 }

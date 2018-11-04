@@ -60,6 +60,12 @@ const signOutFailure = error => {
   console.error('signOutFailure ran. Error is :', error)
 }
 
+const createGame = data => {
+  $('#gameButton').click(function () {
+    $('.box').show()
+  })
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -68,5 +74,6 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  createGame
 }

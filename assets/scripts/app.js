@@ -13,6 +13,15 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out').on('submit', authEvents.onSignOut)
   // authentication
+  $('.box').hide()
+  $('#newGame').hide()
+  $('#sign-out').hide()
+  $('#reset').hide()
+  $('#change-password').hide()
+  $('#newGame').click(function () {
+    $('.box').fadeToggle()
+  // hide stuff for pre-sign up
+  })
 
   let move = 1
   // game starts at move 1, odd number
