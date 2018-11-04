@@ -48,7 +48,7 @@ $(() => {
     }
   })
 
-  $('#reset').click(function (dfsdsfs) {
+  $('#reset').click(function () {
     $('#topLeft').html('')
     $('#topMid').html('')
     $('#topRight').html('')
@@ -58,6 +58,7 @@ $(() => {
     $('#bottomLeft').html('')
     $('#bottomMid').html('')
     $('#bottomRight').html('')
+    $('#message').text('')
     play = true
   })
 
