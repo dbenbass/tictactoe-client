@@ -33,14 +33,32 @@ $(() => {
       if (checkForWinner() !== -1 && checkForWinner() !== '') {
       // continue playing if checkForWinner is not equal to -1 and is not blank
         if (checkForWinner() === 'X') {
+          $('#message').text('X wins')
           console.log('X wins!')
         } else if (checkForWinner() === 'O') {
+          $('#message').text('O wins')
           console.log('O wins')
         // if checkForWinner = x,  x wins, if o, o wins...
-        } else if (checkForWinner() === 'draw') { console.log('draw') }
+        } else if (checkForWinner() === 'draw') {
+          $('#message').text('drawww')
+          console.log('draw')
+        }
         play = false
       }
     }
+  })
+
+  $('#reset').click(function (dfsdsfs) {
+    $('#topLeft').html('')
+    $('#topMid').html('')
+    $('#topRight').html('')
+    $('#midLeft').html('')
+    $('#midMid').html('')
+    $('#midRight').html('')
+    $('#bottomLeft').html('')
+    $('#bottomMid').html('')
+    $('#bottomRight').html('')
+    play = true
   })
 
   const checkForWinner = function () {
@@ -54,17 +72,6 @@ $(() => {
     const space8 = $('#bottomMid').text()
     const space9 = $('#bottomRight').text()
 
-    $('#reset').click(function () {
-      $('#topLeft').html('')
-      $('#topMid').html('')
-      $('#topRight').html('')
-      $('#midLeft').html('')
-      $('#midMid').html('')
-      $('#midRight').html('')
-      $('#bottomLeft').html('')
-      $('#bottomMid').html('')
-      $('#bottomRight').html('')
-    })
     // check rows
     if ((space1 === space2) && (space2 === space3)) {
       return space3
