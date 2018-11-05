@@ -23,7 +23,6 @@ $(() => {
     $('#reset').show()
     $('#newGame').hide()
     $('#message').hide()
-
   // hide stuff for pre-sign up
   })
 
@@ -51,6 +50,8 @@ $(() => {
           console.log('X wins!')
           $('#reset').hide()
           $('#newGame').show()
+          // show new game button
+          // hide reset
         } else if (checkForWinner() === 'O') {
           $('#gameResultMessage').text('O wins')
           $('#reset').hide()
@@ -81,6 +82,7 @@ $(() => {
     $('#message').text('')
     $('#gameResultMessage').text('')
     play = true
+    // create empty board on reset, hide game result message
   })
 
   const checkForWinner = function () {
@@ -93,7 +95,7 @@ $(() => {
     const space7 = $('#bottomLeft').text()
     const space8 = $('#bottomMid').text()
     const space9 = $('#bottomRight').text()
-
+    // check each space for x or o
     // check rows
     if ((space1 === space2) && (space2 === space3)) {
       return space3
@@ -115,6 +117,7 @@ $(() => {
       return space7
     } else if ((space1 !== '') && (space2 !== '') && (space3 !== '') && (space4 !== '') &&
       (space5 !== '') && (space6 !== '') && (space7 !== '') && (space8 !== '') && (space9 !== '')) {
+      // if board is full but no matches
       return 'draw'
     }
     return -1
