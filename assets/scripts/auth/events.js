@@ -44,7 +44,7 @@ const onSignOut = event => {
 }
 
 const newGame = event => {
-  event.preventDevault()
+  event.preventDefault()
   api.createGame()
     .then(ui.createGame)
 }

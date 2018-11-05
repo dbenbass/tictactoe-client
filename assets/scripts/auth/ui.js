@@ -3,6 +3,7 @@
 const store = require('../store.js')
 
 const signUpSuccess = data => {
+
   $('#message').text('Signed up successfully')
   $('#message').removeClass()
   $('#message').addClass('success')

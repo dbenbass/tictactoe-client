@@ -18,6 +18,7 @@ $(() => {
   $('#sign-out').hide()
   $('#reset').hide()
   $('#change-password').hide()
+  $('#create-game').on('click', gameEvents.onNewGame)
   $('#newGame').click(function () {
     $('.box').show()
     $('#reset').show()
