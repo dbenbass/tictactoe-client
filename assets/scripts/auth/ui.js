@@ -74,7 +74,7 @@ const signOutFailure = error => {
 const createGame = data => {
   $('#gameButton').click(function () {
     $('.box').show()
-    $('#message').hide()
+    $('#authMessage').hide()
   })
 }
 

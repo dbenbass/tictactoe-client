@@ -79,7 +79,7 @@ $(() => {
     $('#bottomMid').html('')
     $('#bottomRight').html('')
     $('#message').text('')
-    $('#gameResultMessage').hide()
+    $('#gameResultMessage').text('')
     play = true
   })
 
