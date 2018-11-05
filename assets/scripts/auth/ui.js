@@ -23,6 +23,9 @@ const signInSuccess = data => {
   $('#message').addClass('success')
   console.log('signInSuccess ran. Data is :', data)
   $('#newGame').show()
+  $('#sign-out').show()
+  $('#sign-up').hide()
+  $('#sign-in').hide()
 }
 
 const signInFailure = error => {
@@ -47,11 +50,18 @@ const changePasswordFailure = error => {
 }
 
 const signOutSuccess = data => {
+  $('#message').show()
   $('#message').text('Signed out successfully')
   store.user = null
   $('#message').removeClass()
   $('#message').addClass('success')
   console.log('signOutSuccess ran. Data is :', data)
+  $('.box').hide()
+  $('#sign-in').show()
+  $('#sign-out').hide()
+  $('#reset').hide()
+  $('#gameButton').hide()
+  $('#sign-up').show()
 }
 
 const signOutFailure = error => {
@@ -64,6 +74,7 @@ const signOutFailure = error => {
 const createGame = data => {
   $('#gameButton').click(function () {
     $('.box').show()
+    $('#message').hide()
   })
 }
 

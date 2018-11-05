@@ -22,6 +22,7 @@ $(() => {
     $('.box').show()
     $('#reset').show()
     $('#newGame').hide()
+    $('#message').hide()
 
   // hide stuff for pre-sign up
   })
@@ -45,14 +46,21 @@ $(() => {
       if (checkForWinner() !== -1 && checkForWinner() !== '') {
       // continue playing if checkForWinner is not equal to -1 and is not blank
         if (checkForWinner() === 'X') {
-          $('#message').text('X wins')
+          $('#gameResultMessage').text('X wins')
+          $('#newGame').show()
           console.log('X wins!')
+          $('#reset').hide()
+          $('#newGame').show()
         } else if (checkForWinner() === 'O') {
-          $('#message').text('O wins')
+          $('#gameResultMessage').text('O wins')
+          $('#reset').hide()
+          $('#newGame').show()
           console.log('O wins')
         // if checkForWinner = x,  x wins, if o, o wins...
         } else if (checkForWinner() === 'draw') {
-          $('#message').text('drawww')
+          $('#gameResultMessage').text('Draw!')
+          $('#reset').hide()
+          $('#newGame').show()
           console.log('draw')
         }
         play = false
@@ -71,6 +79,7 @@ $(() => {
     $('#bottomMid').html('')
     $('#bottomRight').html('')
     $('#message').text('')
+    $('#gameResultMessage').hide()
     play = true
   })
 
