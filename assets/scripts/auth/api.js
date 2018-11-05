@@ -16,7 +16,7 @@ const createGame = data => {
 
 const signUp = data => {
   return $.ajax({
-    url: config.apiUrl + '/signUp',
+    url: config.apiUrl + '/sign-up',
     method: 'POST',
     data
   })

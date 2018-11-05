@@ -19,7 +19,10 @@ $(() => {
   $('#reset').hide()
   $('#change-password').hide()
   $('#newGame').click(function () {
-    $('.box').fadeToggle()
+    $('.box').show()
+    $('#reset').show()
+    $('#newGame').hide()
+
   // hide stuff for pre-sign up
   })
 
