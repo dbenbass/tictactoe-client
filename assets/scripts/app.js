@@ -8,6 +8,9 @@
 
 $(() => {
   const authEvents = require('./auth/events.js')
+  const gamesEvents = require('./games/events.js')
+  const gameApi = require('./games/api.js')
+
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
@@ -18,12 +21,15 @@ $(() => {
   $('#sign-out').hide()
   $('#reset').hide()
   $('#change-password').hide()
-  $('#create-game').on('click', gameEvents.onNewGame)
+
+  $('#create-game').on('click', gamesEvents.onNewGame)
+
   $('#newGame').click(function () {
     $('.box').show()
     $('#reset').show()
     $('#newGame').hide()
     $('#message').hide()
+    gameApi.createGame()
   // hide stuff for pre-sign up
   })
 
