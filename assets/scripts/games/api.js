@@ -3,10 +3,22 @@
 const config = require('../config.js')
 const store = require('../store.js')
 
-const createGame = function () {
+const createGameSuccess = function () {
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
+    headers: {
+      // Authorization: 'Token token=BAhJIiVhMGRiNWM1YjkxNTNkNzNiNDc1NjAyMjVhOGZjNWQ0NgY6BkVG--a73b4ad6fac9e026c917fa9d10cc8e27ba902c97'
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {}
+  })
+}
+
+const updateGame = data => {
+  return $.ajax({
+    url: config.apiUrl + '/games/:3004',
+    method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
@@ -15,5 +27,6 @@ const createGame = function () {
 }
 
 module.exports = {
-  createGame
+  createGameSuccess,
+  updateGame
 }

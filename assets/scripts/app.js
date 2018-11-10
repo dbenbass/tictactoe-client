@@ -8,8 +8,10 @@
 
 $(() => {
   const authEvents = require('./auth/events.js')
-  const gamesEvents = require('./games/events.js')
+  // const gamesEvents = require('./games/events.js')
   const gameApi = require('./games/api.js')
+  const updateGame = require('./games/api.js'
+  )
 
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
@@ -22,14 +24,18 @@ $(() => {
   $('#reset').hide()
   $('#change-password').hide()
 
-  $('#create-game').on('click', gamesEvents.onNewGame)
+  // $('#create-game').on('click', gamesEvents.onNewGame)
 
   $('#newGame').click(function () {
     $('.box').show()
     $('#reset').show()
     $('#newGame').hide()
     $('#message').hide()
-    gameApi.createGame()
+    gameApi.createGameSuccess()
+      .then(console.log)
+      .catch(console.log)
+    // .catch  do console logs
+    // save id that it gives back
   // hide stuff for pre-sign up
   })
 
@@ -37,15 +43,20 @@ $(() => {
   // game starts at move 1, odd number
   let play = true
 
-  $('.row .square').click(function () {
+  $('.row .square').click(function (event) {
   // when you click on a square
     if ($(this).text() === '' && play) {
     // if square is blank and game is in session
       if ((move % 2) === 1) {
+        const player = 'O'
         // and move is an odd number, write X
         $(this).append('X')
+        console.log(player)
       } else {
+        const player = 'X'
         $(this).append('O')
+        console.log(player)
+
         // if not, O
       }
       move++
@@ -73,6 +84,11 @@ $(() => {
         }
         play = false
       }
+      const boardMove = $(this).attr('id')
+      console.log(boardMove)
+
+    //  const playerTurn = $(this).attr
+      // check if game is over??
     }
   })
 

@@ -3,7 +3,7 @@
 const config = require('../config.js')
 const store = require('../store.js')
 
-const createGame = data => {
+/* const createGame = data => {
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
@@ -13,6 +13,7 @@ const createGame = data => {
     data
   })
 }
+*/
 
 const signUp = data => {
   return $.ajax({
@@ -52,7 +53,7 @@ const signOut = () => {
 }
 
 module.exports = {
-  createGame,
+//  createGame,
   signUp,
   signIn,
   changePassword,
