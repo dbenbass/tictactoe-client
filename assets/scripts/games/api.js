@@ -8,25 +8,27 @@ const createGameSuccess = function () {
     url: config.apiUrl + '/games',
     method: 'POST',
     headers: {
-      // Authorization: 'Token token=BAhJIiVhMGRiNWM1YjkxNTNkNzNiNDc1NjAyMjVhOGZjNWQ0NgY6BkVG--a73b4ad6fac9e026c917fa9d10cc8e27ba902c97'
+    //  Authorization: 'Token token=BAhJIiVhMGRiNWM1YjkxNTNkNzNiNDc1NjAyMjVhOGZjNWQ0NgY6BkVG--a73b4ad6fac9e026c917fa9d10cc8e27ba902c97'
       Authorization: 'Token token=' + store.user.token
     },
     data: {}
   })
 }
 
-const updateGame = data => {
+const updateGameSuccess = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/games/:3004',
+    url: config.apiUrl + 'games/4382',
     method: 'PATCH',
     headers: {
+      // Authorization: 'Token token=BAhJIiVhMGRiNWM1YjkxNTNkNzNiNDc1NjAyMjVhOGZjNWQ0NgY6BkVG--a73b4ad6fac9e026c917fa9d10cc8e27ba902c97' +
+    //  store.user.token
       Authorization: 'Token token=' + store.user.token
     },
-    data: {}
+    data
   })
 }
 
 module.exports = {
   createGameSuccess,
-  updateGame
+  updateGameSuccess
 }

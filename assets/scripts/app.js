@@ -10,8 +10,10 @@ $(() => {
   const authEvents = require('./auth/events.js')
   // const gamesEvents = require('./games/events.js')
   const gameApi = require('./games/api.js')
-  const updateGame = require('./games/api.js'
-  )
+  const playerTurn = $('checkForWinner').val()
+  console.log(playerTurn)
+  const boardMove = $(this).attr('id')
+  console.log(boardMove)
 
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
@@ -26,12 +28,13 @@ $(() => {
 
   // $('#create-game').on('click', gamesEvents.onNewGame)
 
-  $('#newGame').click(function () {
+  $('#newGame').click(function (newGame) {
     $('.box').show()
     $('#reset').show()
     $('#newGame').hide()
     $('#message').hide()
     gameApi.createGameSuccess()
+
       .then(console.log)
       .catch(console.log)
     // .catch  do console logs
@@ -45,19 +48,20 @@ $(() => {
 
   $('.row .square').click(function (event) {
   // when you click on a square
+    let player
     if ($(this).text() === '' && play) {
     // if square is blank and game is in session
       if ((move % 2) === 1) {
-        const player = 'O'
+        player = 'X'
         // and move is an odd number, write X
         $(this).append('X')
         console.log(player)
       } else {
-        const player = 'X'
+        player = 'O'
         $(this).append('O')
-        console.log(player)
 
         // if not, O
+        console.log(player)
       }
       move++
       if (checkForWinner() !== -1 && checkForWinner() !== '') {
@@ -84,9 +88,27 @@ $(() => {
         }
         play = false
       }
-      const boardMove = $(this).attr('id')
-      console.log(boardMove)
 
+      const boardMove = $(this).attr('data-index')
+      console.log(boardMove)
+      // const playerTurn = $(this).attr
+      const data =
+      {
+        'game': {
+          'cell': {
+            'index': boardMove,
+            'value': player
+          },
+          'over': false
+        }
+      }
+      // $(this).attr('id')
+      gameApi.updateGameSuccess(data)
+      //  event.preventDefault()
+        .then(console.log)
+        .catch(console.err)
+
+    //  const playerTurn = $('checkForWinner').val()
     //  const playerTurn = $(this).attr
       // check if game is over??
     }
