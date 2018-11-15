@@ -7,9 +7,11 @@
 // require('./example')
 
 $(() => {
+  // const store = require('../store.js')
   const authEvents = require('./auth/events.js')
   // const gamesEvents = require('./games/events.js')
   const gameApi = require('./games/api.js')
+  const gameUi = require('./games/ui.js')
   const playerTurn = $('checkForWinner').val()
   console.log(playerTurn)
   const boardMove = $(this).attr('id')
@@ -22,6 +24,7 @@ $(() => {
   // authentication
   $('.box').hide()
   $('#newGame').hide()
+  $('#pastGames').hide()
   $('#sign-out').hide()
   $('#reset').hide()
   $('#change-password').hide()
@@ -34,8 +37,8 @@ $(() => {
     $('#newGame').hide()
     $('#message').hide()
     gameApi.createGameSuccess()
-
-      .then(console.log)
+    // store.games = data.games
+      .then(gameUi.onCreateGameSuccess)
       .catch(console.log)
     // .catch  do console logs
     // save id that it gives back
@@ -55,13 +58,13 @@ $(() => {
         player = 'X'
         // and move is an odd number, write X
         $(this).append('X')
-        console.log(player)
+        console.log('O it is your turn')
       } else {
         player = 'O'
         $(this).append('O')
 
         // if not, O
-        console.log(player)
+        console.log('X it is your turn')
       }
       move++
       if (checkForWinner() !== -1 && checkForWinner() !== '') {
@@ -102,9 +105,7 @@ $(() => {
           'over': false
         }
       }
-      // $(this).attr('id')
       gameApi.updateGameSuccess(data)
-      //  event.preventDefault()
         .then(console.log)
         .catch(console.err)
 

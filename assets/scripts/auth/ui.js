@@ -71,12 +71,16 @@ const signOutFailure = error => {
   console.error('signOutFailure ran. Error is :', error)
 }
 
-const createGame = data => {
-  $('#newGame').click(function () {
-    console.log('flsf')
-    $('.box').show()
-    $('#authMessage').hide()
-  })
+const createGameSuccess = data => {
+  store.game = data.game
+  console.log('createGameSuccess ran.  Data is :', data)
+}
+
+const createGameFailure = error => {
+ $('#message').text('Error on create game')
+ $('#message').removeClass()
+ $('#message').addClass('failure')
+ console.error('createGameFailure ran.  Error is :', error)
 }
 
 module.exports = {
@@ -88,5 +92,6 @@ module.exports = {
   changePasswordFailure,
   signOutSuccess,
   signOutFailure,
-  createGame
+  createGameSuccess,
+  createGameFailure
 }
