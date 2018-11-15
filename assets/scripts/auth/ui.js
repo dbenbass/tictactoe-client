@@ -61,7 +61,7 @@ const signOutSuccess = data => {
   $('#sign-in').show()
   $('#sign-out').hide()
   $('#reset').hide()
-  $('#gameButton').hide()
+  $('#newGame').hide()
   $('#sign-up').show()
   $('#pastGames').hide()
 }
