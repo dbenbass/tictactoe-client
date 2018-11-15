@@ -28,7 +28,20 @@ const updateGameSuccess = function (data) {
   })
 }
 
+const getAllGames = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/games[?over=]',
+
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   createGameSuccess,
-  updateGameSuccess
+  updateGameSuccess,
+  getAllGames
 }

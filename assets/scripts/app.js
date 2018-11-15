@@ -31,6 +31,16 @@ $(() => {
 
   // $('#create-game').on('click', gamesEvents.onNewGame)
 
+  $('#getAllGames').click(function (getAllGames) {
+    gameApi.createGameSuccess()
+    // store.games = data.games
+      .then(gameUi.onCreateGameSuccess)
+      .catch(console.log)
+    // .catch  do console logs
+    // save id that it gives back
+  // hide stuff for pre-sign up
+  })
+
   $('#newGame').click(function (newGame) {
     $('.box').show()
     $('#reset').show()
@@ -93,7 +103,7 @@ $(() => {
       }
 
       const boardMove = $(this).attr('data-index')
-      console.log(boardMove)
+      console.log(play)
       // const playerTurn = $(this).attr
       const data =
       {
@@ -102,7 +112,7 @@ $(() => {
             'index': boardMove,
             'value': player
           },
-          'over': false
+          'over': isGameOver
         }
       }
       gameApi.updateGameSuccess(data)
@@ -130,6 +140,14 @@ $(() => {
     play = true
     // create empty board on reset, hide game result message
   })
+
+  const isGameOver = function () {
+    if (play === true) return false
+    else if (play === false) {
+      return true
+    }
+  //  console.log(isGameOver)
+  }
 
   const checkForWinner = function () {
     const space1 = $('#topLeft').text()

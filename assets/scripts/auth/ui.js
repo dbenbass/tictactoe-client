@@ -23,6 +23,7 @@ const signInSuccess = data => {
   $('#message').addClass('success')
   console.log('signInSuccess ran. Data is :', data)
   $('#newGame').show()
+  $('#pastGames').show()
   $('#sign-out').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
@@ -62,6 +63,7 @@ const signOutSuccess = data => {
   $('#reset').hide()
   $('#gameButton').hide()
   $('#sign-up').show()
+  $('#pastGames').hide()
 }
 
 const signOutFailure = error => {
