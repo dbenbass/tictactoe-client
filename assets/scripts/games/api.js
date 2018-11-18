@@ -28,15 +28,14 @@ const updateGameSuccess = function (data) {
   })
 }
 
-const getAllGames = function (data) {
+const getAllGames = () => {
   return $.ajax({
-    url: config.apiUrl + '/games[?over=]',
-
+    url: config.apiUrl + '/games',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data
+    data: {}
   })
 }
 

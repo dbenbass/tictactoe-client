@@ -24,9 +24,13 @@ const signInSuccess = data => {
   console.log('signInSuccess ran. Data is :', data)
   $('#newGame').show()
   $('#pastGames').show()
+  $('#change-password').show()
   $('#sign-out').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
+  $('#sign-in').hide()
+  $('#password').val('')
+  $('#email').val('')
 }
 
 const signInFailure = error => {
@@ -64,6 +68,7 @@ const signOutSuccess = data => {
   $('#newGame').hide()
   $('#sign-up').show()
   $('#pastGames').hide()
+  $('#change-password').hide()
 }
 
 const signOutFailure = error => {
@@ -78,12 +83,12 @@ const createGameSuccess = data => {
   console.log('createGameSuccess ran.  Data is :', data)
 }
 
-const createGameFailure = error => {
- $('#message').text('Error on create game')
- $('#message').removeClass()
- $('#message').addClass('failure')
- console.error('createGameFailure ran.  Error is :', error)
-}
+// const createGameFailure = error => {
+ // $('#message').text('Error on create game')
+ // $('#message').removeClass()
+ // $('#message').addClass('failure')
+//  console.error('createGameFailure ran.  Error is :', error)
+// }
 
 module.exports = {
   signUpSuccess,
@@ -94,6 +99,6 @@ module.exports = {
   changePasswordFailure,
   signOutSuccess,
   signOutFailure,
-  createGameSuccess,
-  createGameFailure
+  createGameSuccess
+  // createGameFailure
 }

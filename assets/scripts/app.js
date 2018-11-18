@@ -12,6 +12,8 @@ $(() => {
   // const gamesEvents = require('./games/events.js')
   const gameApi = require('./games/api.js')
   const gameUi = require('./games/ui.js')
+  const gameEvents = require('./games/events.js')
+
   const playerTurn = $('checkForWinner').val()
   console.log(playerTurn)
   const boardMove = $(this).attr('id')
@@ -20,8 +22,7 @@ $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
-  $('#sign-out').on('submit', authEvents.onSignOut)
-  // authentication
+  $('#sign-out').on('submit', authEvents.onSignOut) // authentication
   $('.box').hide()
   $('#newGame').hide()
   $('#pastGames').hide()
@@ -31,11 +32,14 @@ $(() => {
 
   // $('#create-game').on('click', gamesEvents.onNewGame)
 
-  $('#getAllGames').click(function (getAllGames) {
-    gameApi.createGameSuccess()
+  $('#pastGames').click(function (onGetAllGames) {
+    gameApi.getAllGames()
     // store.games = data.games
-      .then(gameUi.onCreateGameSuccess)
+      .then(gameEvents.onGetAllGames)
       .catch(console.log)
+    $('#message').text('games.length')
+    // const data = JSON.parse(console.log)
+
     // .catch  do console logs
     // save id that it gives back
   // hide stuff for pre-sign up
@@ -108,6 +112,7 @@ $(() => {
       const data =
       {
         'game': {
+          'winner': gameWinner,
           'cell': {
             'index': boardMove,
             'value': player
@@ -147,6 +152,16 @@ $(() => {
       return true
     }
   //  console.log(isGameOver)
+  }
+
+  const gameWinner = function () {
+    if (checkForWinner() === 'X') {
+      return 'X'
+    } else if (checkForWinner() === 'O') {
+      return 'O'
+    } else if (checkForWinner() === 'draw') {
+      return 'draw'
+    }
   }
 
   const checkForWinner = function () {

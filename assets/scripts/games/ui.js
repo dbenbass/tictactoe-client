@@ -1,6 +1,8 @@
 'use strict'
 
 const store = require('../store.js')
+const gameApi = require('./api.js')
+const gameUi = require('./ui.js')
 
 const onCreateGameSuccess = data => {
   console.log(data)
@@ -14,6 +16,14 @@ const onCreateGameSuccess = data => {
   // })
 }
 
+const onGetAllGamesSuccess = game => {
+  gameApi.getAllGames()
+    .then(gameUi.onGetAllGamesSuccess)
+    .catch(console.log('get all games'))
+  console.log('onGetAllGamesSuccess ran. Data is :', game)
+}
+
 module.exports = {
-  onCreateGameSuccess
+  onCreateGameSuccess,
+  onGetAllGamesSuccess
 }
