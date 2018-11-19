@@ -90,7 +90,7 @@ const signOutFailure = error => {
 const createGameSuccess = data => {
   store.game = data.game
   // console.log('createGameSuccess ran.  Data is :', data)
-  // $('#allGamesMessage').text(`You have played ${data.games.length} games so far on this account`).addClass('allgames')
+  $('#allGamesMessage').text(`You are on game numbe ${data.games.length} games so far on this account`).addClass('allgames')
 }
 
 // const createGameFailure = error => {
