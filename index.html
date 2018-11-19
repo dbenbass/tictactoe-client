@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <head>
+      <title>Tic Tac Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <h1>TIC TAC TOE</h1>
+      <h2>GET READY FOR A CHALLENGE</h2>
+      <div class="container">
+  <div class="row">
+    <div class="col-1 box grey square" id="topLeft" data-index="0"></div>
+    <div class="col-1 box grey square" id="topMid" data-index="1"></div>
+    <div class="col-1 box grey square" id="topRight" data-index="2"></div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-1 box grey square" id="midLeft" data-index="3"></div>
+    <div class="col-1 box grey square" id="midMid" data-index="4"></div>
+    <div class="col-1 box grey square" id="midRight" data-index="5"></div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-1 box grey square"id="bottomLeft" data-index="6"></div>
+    <div class="col-1 box grey square"id="bottomMid" data-index="7"></div>
+    <div class="col-1 box grey square"id="bottomRight"data-index="8"></div>
+  </div>
+</div>
+
+<p id="message"></p>
+<div class='flex-container flex-center'>
+<div class='winner'></div><br>
+
+
+<p id="gameResultMessage"></p>
+<div class='flex-container flex-center'>
+
+<button id="reset">Reset</button>
+<button id="newGame">New Game</button>
+<button id="pastGames">Past Games</button>
+</div>
+
+<p id="allGamesMessage"></p>
+<div class='flex-container'>
+  <div class='allgames'>
+</div>
+<br>
+
+<form id="sign-up" class="border">
+   <fieldset>
+     <legend>Sign up!</legend>
+     <input type="text" name="credentials[email]" placeholder="Email" id="signupemail">
+     <input type="password" name="credentials[password]" placeholder="Password" id="signuppassword">
+     <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" id="signuppasswordconfirm">
+     <input type="submit" value="Sign up!">
+   </fieldset>
+</form>
+
+<form id="sign-in" class="border">
+   <fieldset>
+     <legend>Sign in!</legend>
+     <input type="text" name="credentials[email]" placeholder="Email" id="email">
+     <input type="password" name="credentials[password]" placeholder="Password" id="password">
+     <input type="submit" value="Sign in!">
+   </fieldset>
+</form>
+
+<form id="change-password" class="border">
+   <fieldset>
+     <legend>Change password!</legend>
+     <input type="password" name="passwords[old]" placeholder="Old password" id="oldpassword">
+     <input type="password" name="passwords[new]" placeholder="New password" id="newpassword">
+     <input type="submit" value="Change password!">
+   </fieldset>
+</form>
+
+<form id="sign-out" class="border">
+   <fieldset>
+     <legend>Sign out!</legend>
+     <input type="submit" value="Sign out!">
+   </fieldset>
+</form>
+</body>
+</html>
