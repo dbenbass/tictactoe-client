@@ -15,9 +15,9 @@ $(() => {
   // const gameEvents = require('./games/events.js')
   const getGames = require('./games/ui.js')
   const playerTurn = $('checkForWinner').val()
-  console.log(playerTurn)
+  // console.log(playerTurn)
   const boardMove = $(this).attr('id')
-  console.log(boardMove)
+  // console.log(boardMove)
 
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
@@ -36,7 +36,7 @@ $(() => {
     gameApi.getAllGames()
     // store.games = data.games
       .then(gameUi.onGetAllGamesSuccess)
-      .catch(console.log)
+      // .catch(console.log)
     // $('#message').text('games.length')
     // const data = JSON.parse(console.log)
 
@@ -53,7 +53,7 @@ $(() => {
     gameApi.createGameSuccess()
     // store.games = data.games
       .then(gameUi.onCreateGameSuccess)
-      .catch(console.log)
+      // .catch(console.log)
     // .catch  do console logs
     // save id that it gives back
   // hide stuff for pre-sign up
@@ -99,7 +99,7 @@ $(() => {
         // if checkForWinner = x,  x wins, if o, o wins...
         } else if (checkForWinner() === 'draw') {
           $('#gameResultMessage').text('Draw!')
-          console.log(gameUi.onGetAllGamesSuccess)
+          // console.log(gameUi.onGetAllGamesSuccess)
           $('#reset').hide()
           $('#newGame').show()
           // console.log('draw')
@@ -122,8 +122,8 @@ $(() => {
         }
       }
       gameApi.updateGameSuccess(data)
-        .then(console.log)
-        .catch(console.err)
+      //  .then(console.log)
+      //  .catch(console.err)
 
     //  const playerTurn = $('checkForWinner').val()
     //  const playerTurn = $(this).attr
@@ -143,7 +143,7 @@ $(() => {
     $('#bottomRight').html('')
     $('#message').text('')
     // $('#gameResultMessage').text('')
-    //$('#allGamesMessage').text(`You have played ${game.games.length} games so far on this account. Click
+    // $('#allGamesMessage').text(`You have played ${game.games.length} games so far on this account. Click
     //  past games button again to refresh!`)
     play = true
     // create empty board on reset, hide game result message
