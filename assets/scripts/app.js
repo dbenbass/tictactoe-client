@@ -30,9 +30,9 @@ $(() => {
   $('#reset').hide()
   $('#change-password').hide()
 
-  // $('#create-game').on('click', gamesEvents.onNewGame)
+ // $('#create-game').on('click', gamesEvents.onNewGame)
 
-  $('#pastGames').click(function (onGetAllGames) {
+  $('#pastGames').click(function () {
     gameApi.getAllGames()
     // store.games = data.games
       .then(gameUi.onGetAllGamesSuccess)
@@ -142,8 +142,8 @@ $(() => {
     $('#bottomMid').html('')
     $('#bottomRight').html('')
     $('#message').text('')
-    $('#gameResultMessage').text('')
-  //  $('#allGamesMessage').text(`You have played ${game.games.length} games so far on this account. Click
+    // $('#gameResultMessage').text('')
+    //$('#allGamesMessage').text(`You have played ${game.games.length} games so far on this account. Click
     //  past games button again to refresh!`)
     play = true
     // create empty board on reset, hide game result message

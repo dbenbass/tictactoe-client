@@ -18,8 +18,7 @@ const onCreateGameSuccess = data => {
 
 const onGetAllGamesSuccess = game => {
   const getGames = game.games.length
-  $('#allGamesMessage').text(`You have played ${getGames} games so far on this account. Click
-    past games button again to refresh!`).addClass('allgames')
+  $('#allGamesMessage').text(`You are on game number ${getGames} on this account.`).addClass('allgames')
   // console.log('onGetAllGamesSuccess ran. Data is :', game)
 }
 
