@@ -1,11 +1,11 @@
 'use strict'
 
 const store = require('../store.js')
-const gameApi = require('./api.js')
-const gameUi = require('./ui.js')
+// const gameApi = require('./api.js')
+// const gameUi = require('./ui.js')
 
 const onCreateGameSuccess = data => {
-  console.log(data)
+  // console.log(data)
   store.gameId = data.game.id
   // $('#newGame').click(function () {
   //   console.log = ('sfdjkafdjjsf')
@@ -17,10 +17,10 @@ const onCreateGameSuccess = data => {
 }
 
 const onGetAllGamesSuccess = game => {
-  gameApi.getAllGames()
-    .then(gameUi.onGetAllGamesSuccess)
-    .catch(console.log('get all games'))
-  console.log('onGetAllGamesSuccess ran. Data is :', game)
+  const getGames = game.games.length
+  $('#allGamesMessage').text(`You have played ${getGames} games so far on this account. Click
+    past games button again to refresh!`).addClass('allgames')
+  // console.log('onGetAllGamesSuccess ran. Data is :', game)
 }
 
 module.exports = {

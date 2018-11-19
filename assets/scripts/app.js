@@ -12,8 +12,8 @@ $(() => {
   // const gamesEvents = require('./games/events.js')
   const gameApi = require('./games/api.js')
   const gameUi = require('./games/ui.js')
-  const gameEvents = require('./games/events.js')
-
+  // const gameEvents = require('./games/events.js')
+  // const getGames = require('./games/ui.js')
   const playerTurn = $('checkForWinner').val()
   console.log(playerTurn)
   const boardMove = $(this).attr('id')
@@ -35,9 +35,9 @@ $(() => {
   $('#pastGames').click(function (onGetAllGames) {
     gameApi.getAllGames()
     // store.games = data.games
-      .then(gameEvents.onGetAllGames)
-      .catch(console.log)
-    $('#message').text('games.length')
+      .then(gameUi.onGetAllGamesSuccess)
+      // .catch(console.log)
+    // $('#message').text('games.length')
     // const data = JSON.parse(console.log)
 
     // .catch  do console logs
@@ -49,11 +49,11 @@ $(() => {
     $('.box').show()
     $('#reset').show()
     $('#newGame').hide()
-    $('#message').hide()
+    $('#message').text('')
     gameApi.createGameSuccess()
     // store.games = data.games
       .then(gameUi.onCreateGameSuccess)
-      .catch(console.log)
+      // .catch(console.log)
     // .catch  do console logs
     // save id that it gives back
   // hide stuff for pre-sign up
@@ -72,13 +72,13 @@ $(() => {
         player = 'X'
         // and move is an odd number, write X
         $(this).append('X')
-        console.log('O it is your turn')
+        // console.log('O it is your turn')
       } else {
         player = 'O'
         $(this).append('O')
 
         // if not, O
-        console.log('X it is your turn')
+        // console.log('X it is your turn')
       }
       move++
       if (checkForWinner() !== -1 && checkForWinner() !== '') {
@@ -86,7 +86,7 @@ $(() => {
         if (checkForWinner() === 'X') {
           $('#gameResultMessage').text('X wins')
           $('#newGame').show()
-          console.log('X wins!')
+          // console.log('X wins!')
           $('#reset').hide()
           $('#newGame').show()
           // show new game button
@@ -95,19 +95,19 @@ $(() => {
           $('#gameResultMessage').text('O wins')
           $('#reset').hide()
           $('#newGame').show()
-          console.log('O wins')
+          // console.log('O wins')
         // if checkForWinner = x,  x wins, if o, o wins...
         } else if (checkForWinner() === 'draw') {
           $('#gameResultMessage').text('Draw!')
           $('#reset').hide()
           $('#newGame').show()
-          console.log('draw')
+          // console.log('draw')
         }
         play = false
       }
 
       const boardMove = $(this).attr('data-index')
-      console.log(play)
+      // console.log(play)
       // const playerTurn = $(this).attr
       const data =
       {
@@ -121,13 +121,31 @@ $(() => {
         }
       }
       gameApi.updateGameSuccess(data)
-        .then(console.log)
-        .catch(console.err)
+      // .then(console.log)
+      // .catch(console.err)
 
     //  const playerTurn = $('checkForWinner').val()
     //  const playerTurn = $(this).attr
       // check if game is over??
     }
+  })
+
+  $('#newGame').click(function () {
+    $('#topLeft').html('')
+    $('#topMid').html('')
+    $('#topRight').html('')
+    $('#midLeft').html('')
+    $('#midMid').html('')
+    $('#midRight').html('')
+    $('#bottomLeft').html('')
+    $('#bottomMid').html('')
+    $('#bottomRight').html('')
+    $('#message').text('')
+    $('#gameResultMessage').text('')
+    // $('#allGamesMessage').text(`You have played ${getGames} games so far on this account. Click
+    //  past games button again to refresh!`)
+    play = true
+    // create empty board on reset, hide game result message
   })
 
   $('#reset').click(function () {

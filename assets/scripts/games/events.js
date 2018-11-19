@@ -11,18 +11,16 @@ const ui = require('./ui.js')
 // console.log('create game')
 // }
 const onGetAllGames = event => {
-  // event.preventDefault()
+  event.preventDefault()
   gameApi.getAllGames()
-  console.log(event)
-  console.log(event.games.length)
-  $('#pastGames').click(function (getAllGames) {
-    $('.box').hide()
-      .then(ui.onGetAllGamesSuccess)
-      .catch(console.log)
-  }
-
-  )
+  //  console.log(event)
+  //  console.log(event.games.length)
+  //  $('#pastGames').click(function (getAllGames) {
+    // console.log('this')
+    .then(ui.onGetAllGamesSuccess)
+    .catch(console.log)
 }
+
 // const onGetAllGames = event => {
 // event.preventDefault()
 // api.getAllGames()

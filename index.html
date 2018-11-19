@@ -40,6 +40,7 @@
 <div class='flex-container flex-center'>
 <div class='winner'></div><br>
 
+
 <p id="gameResultMessage"></p>
 <div class='flex-container flex-center'>
 
@@ -48,13 +49,16 @@
 <button id="pastGames">Past Games</button>
 </div>
 
+<p id="allGamesMessage"></p>
+<div class='flex-container'>
+</div>
+
 <form id="sign-up" class="border">
    <fieldset>
      <legend>Sign up!</legend>
-     <input type="text" name="credentials[email]" placeholder="Email">
-     <input type="password" name="credentials[password]" placeholder="Password">
-     <input type="password" name="credentials[password_confirmation]"
-            placeholder="Confirm Password">
+     <input type="text" name="credentials[email]" placeholder="Email" id="signupemail">
+     <input type="password" name="credentials[password]" placeholder="Password" id="signuppassword">
+     <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" id="signuppasswordconfirm">
      <input type="submit" value="Sign up!">
    </fieldset>
 </form>
@@ -71,8 +75,8 @@
 <form id="change-password" class="border">
    <fieldset>
      <legend>Change password!</legend>
-     <input type="password" name="passwords[old]" placeholder="Old password">
-     <input type="password" name="passwords[new]" placeholder="New password">
+     <input type="password" name="passwords[old]" placeholder="Old password" id="oldpassword">
+     <input type="password" name="passwords[new]" placeholder="New password" id="newpassword">
      <input type="submit" value="Change password!">
    </fieldset>
 </form>
